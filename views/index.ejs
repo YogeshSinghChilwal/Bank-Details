@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="search-form">
+            <h1>Discover Indian Bank Details Instantly</h1>
+            <div class="search">
+                <form action="/submit" method="post">
+                    <input type="text" name="IFSC" class="search-input" placeholder="Enter IFSC Code...">
+                    <button type="submit" class="search-button">Get Details</button>
+                </form>
+            </div>
+        </div>
+        <div class="search-result">
+            <% if(locals.data){ %>
+                <ul>
+                    <li>Bank name: <%= data.BANK %></li>
+                    <li>Branch: <%= data.BRANCH %></li>
+                    <li>Bank code: <%= data.BANKCODE %></li>
+                    <li>IFSC Code: <%= data.IFSC %></li>
+                    <li>Address: <%= data.ADDRESS %></li>
+                    <li>Center: <%= data.CENTRE %></li>
+                    <li>City: <%= data.CITY %></li>
+                    <li>District: <%= data.DISTRICT %></li>
+                    <li>Contact: <%= data.CONTACT %></li>
+                    <li>Swift Code: <%= data.SWIFT %></li> 
+                </ul>
+            <% } else if(locals.errorMesg){ %>
+                <ul>
+                    <li><%= errorMesg %></li>
+                </ul>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
